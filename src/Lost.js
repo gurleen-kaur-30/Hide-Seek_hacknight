@@ -2,9 +2,9 @@
  import ImageUploader from 'react-firebase-file-uploader';
  import firebase from 'firebase';
  import './App.css';
+ import './App';
+ import './Lost.css';
  import { Form, Text, NestedField, Select,TextArea } from 'react-form';
- var userid = 0;
-
 
  var config = {
      apiKey: "AIzaSyA4XgemiAnxGRJtFqVWDcFHpc__6ihwjMU",
@@ -124,7 +124,7 @@
 
 
 
-  class NestedFieldExample extends Component {
+  class Lost extends Component {
 
 
     constructor( props ) {
@@ -148,30 +148,19 @@
      const email = document.getElementById("email").value;
      const type = document.getElementById("type").value;
      const desc= document.getElementById("desc").value;
-    // const upload= document.getElementById("upload").value;
-  //    firebase.database().ref('lost/' + userid).set({
-  //  username: name,
-  //  email: email,
-  //  type: type,
-  //  desc: desc
-  //
-  // });
+    
 
   var postsRef = firebase.database().ref('lost/');
 
-var newPostRef = postsRef.push();
-newPostRef.set({
-  username: name,
-  email: email,
-  type: type,
-  desc: desc
-});
-
+  var newPostRef = postsRef.push();
+  newPostRef.set({
+    username: name,
+    email: email,
+    type: type,
+    desc: desc
+  });
+  window.alert("Submitted!");
     }
-
-
-
-
 
     render() {
       return (
@@ -195,4 +184,4 @@ newPostRef.set({
 
 }
 
-  export default NestedFieldExample;
+export default Lost;
